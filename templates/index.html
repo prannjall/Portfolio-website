@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <!-- Hero Section -->
+    <div class="col-12 text-center mb-5 fade-in">
+        <div class="profile-image-container mb-4">
+            <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="{{ profile.name }}" class="profile-image">
+        </div>
+        <h1 class="display-4">{{ profile.name }}</h1>
+        <h2 class="text-muted">{{ profile.title }}</h2>
+        <div class="mt-4">
+            <p class="lead">{{ profile.summary | safe | replace('\n', '<br>') }}</p>
+        </div>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="col-12 mb-5 fade-in">
+        <h3 class="mb-4">Core Competencies</h3>
+        <div class="row">
+            {% for skill in profile.skills %}
+            <div class="col-md-4 col-lg-3 mb-3">
+                <div class="card h-100">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">{{ skill }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Experience Preview -->
+    <div class="col-12 mb-5 fade-in">
+        <h3 class="mb-4">Recent Experience</h3>
+        <div class="row">
+            {% for exp in profile.experience[:2] %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ exp.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ exp.company }}</h6>
+                        <p class="card-text">
+                            <span class="badge bg-primary">{{ exp.duration }}</span>
+                            <span class="text-muted ms-2">{{ exp.location }}</span>
+                        </p>
+                        <p class="card-text">{{ exp.description | truncate(200) }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-3">
+            <a href="/experience" class="btn btn-primary">View Full Experience</a>
+        </div>
+    </div>
+
+    <!-- Education Section -->
+    <div class="col-12 fade-in">
+        <h3 class="mb-4">Education</h3>
+        <div class="row">
+            {% for edu in profile.education %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ edu.degree }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ edu.school }}</h6>
+                        <p class="card-text">{{ edu.year }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

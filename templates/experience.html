@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="display-4 mb-5">Professional Experience</h1>
+        
+        {% for exp in profile.experience %}
+        <div class="card mb-5 fade-in">
+            <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-3">
+                    <div>
+                        <h2 class="card-title h3">{{ exp.title }}</h2>
+                        <h3 class="card-subtitle text-muted h5">{{ exp.company }}</h3>
+                    </div>
+                    <div class="text-end">
+                        <span class="badge bg-primary">{{ exp.duration }}</span>
+                        <p class="text-muted mt-2">{{ exp.location }}</p>
+                    </div>
+                </div>
+                
+                <div class="card-text">
+                    {{ exp.description | safe | replace('\n', '<br>') | replace('•', '<br>•') }}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %} 
