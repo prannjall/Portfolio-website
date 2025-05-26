@@ -1,83 +1,79 @@
-# Personal Portfolio Website
+# Professional Portfolio Website
 
-A modern, responsive portfolio website built with Flask, showcasing professional experience and skills.
+A modern, responsive portfolio website built with HTML, CSS, and JavaScript, featuring a clean design and smooth animations.
 
 ## Features
 
 - Responsive design that works on all devices
 - Modern UI with smooth animations
-- Sections for experience, skills, and education
-- Contact information and social media links
-- Easy to customize and extend
+- Dark mode support
+- Interactive sections for experience, skills, and education
+- Social media integration
+- Contact form
+- SEO optimized
 
-## Setup
+## Live Demo
+
+Visit the live site at: [https://pranjaltripathi.github.io/portfolio-website](https://pranjaltripathi.github.io/portfolio-website)
+
+## Local Development
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/portfolio-website.git
+git clone https://github.com/pranjaltripathi/portfolio-website.git
 cd portfolio-website
 ```
 
-2. Create a virtual environment and activate it:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+2. Open `index.html` in your browser to view the site locally.
+
+## Project Structure
+
+```
+portfolio-website/
+├── index.html              # Main HTML file
+├── static/
+│   ├── css/
+│   │   └── style.css      # Custom styles
+│   └── images/            # Image assets
+├── .github/
+│   └── workflows/         # GitHub Actions workflows
+└── README.md              # Project documentation
 ```
 
-3. Install dependencies:
-```bash
-pip install -r requirements.txt
-```
+## GitHub Pages Deployment
 
-4. Run the development server:
-```bash
-python app.py
-```
+This site is automatically deployed to GitHub Pages using GitHub Actions. The deployment process:
 
-5. Visit `http://localhost:5000` in your browser
+1. Pushes to the main branch trigger the deployment workflow
+2. The workflow builds the site and deploys it to the gh-pages branch
+3. GitHub Pages serves the site from the gh-pages branch
+
+To deploy manually:
+1. Make your changes
+2. Commit and push to the main branch
+3. The GitHub Action will automatically deploy to GitHub Pages
 
 ## Customization
 
-1. Update the `PROFILE_DATA` dictionary in `app.py` with your information
-2. Modify the templates in the `templates` directory to change the layout
-3. Edit `static/css/style.css` to customize the styling
-
-## Deployment
-
-### Deploying to GitHub Pages
-
-1. Create a new repository on GitHub
-2. Push your code:
-```bash
-git init
-git add .
-git commit -m "Initial commit"
-git remote add origin https://github.com/yourusername/portfolio-website.git
-git push -u origin main
-```
-
-### Deploying to Heroku
-
-1. Create a `Procfile`:
-```
-web: gunicorn app:app
-```
-
-2. Add gunicorn to requirements.txt:
-```
-gunicorn==20.1.0
-```
-
-3. Deploy to Heroku:
-```bash
-heroku create
-git push heroku main
-```
+1. Update the content in `index.html`
+2. Modify styles in `static/css/style.css`
+3. Add your images to `static/images/`
+4. Commit and push your changes
 
 ## Contributing
 
-Feel free to submit issues and enhancement requests!
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Contact
+
+Pranjal Tripathi - [LinkedIn](https://www.linkedin.com/in/pranjaltripathi/)
+
+Project Link: [https://github.com/pranjaltripathi/portfolio-website](https://github.com/pranjaltripathi/portfolio-website) 
