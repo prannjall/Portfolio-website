@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="display-4 mb-5">Projects & Thought Leadership</h1>
+        
+        <!-- Major Projects -->
+        <h2 class="h3 mb-4">Major Projects</h2>
+        <div class="row mb-5">
+            <!-- CloudHub Project -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 fade-in">
+                    <div class="card-body">
+                        <img src="{{ url_for('static', filename='images/products/cloudhub.png') }}" 
+                             alt="CloudHub Platform" 
+                             class="product-image mb-3">
+                        <h2 class="card-title h3">CloudHub Platform</h2>
+                        <h3 class="card-subtitle text-muted h5">Salesforce</h3>
+                        <p class="card-text mt-3">
+                            Led product strategy and roadmap execution for MuleSoft's iPaaS platform, supporting global customers in hybrid and multi-cloud environments. Enabled enterprise-grade deployments through AWS Transit Gateway integration.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">iPaaS</span>
+                            <span class="badge bg-primary me-2">Cloud Platforms</span>
+                            <span class="badge bg-primary me-2">Enterprise SaaS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mule Runtime Project -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 fade-in">
+                    <div class="card-body">
+                        <img src="{{ url_for('static', filename='images/products/mule-runtime.png') }}" 
+                             alt="Mule Runtime & SDK" 
+                             class="product-image mb-3">
+                        <h2 class="card-title h3">Mule Runtime & SDK</h2>
+                        <h3 class="card-subtitle text-muted h5">Salesforce</h3>
+                        <p class="card-text mt-3">
+                            Spearheaded core platform capabilities including Mule Runtime, HTTP Connector, and Java/XML SDKs, powering thousands of mission-critical integrations. Reduced connector development time by 30%.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">API Management</span>
+                            <span class="badge bg-primary me-2">SDK Development</span>
+                            <span class="badge bg-primary me-2">Platform Scalability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ServiceLink Projects -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 fade-in">
+                    <div class="card-body">
+                        <img src="{{ url_for('static', filename='images/products/digital-mortgage.png') }}" 
+                             alt="Digital Mortgage Platform" 
+                             class="product-image mb-3">
+                        <h2 class="card-title h3">Digital Mortgage Platform</h2>
+                        <h3 class="card-subtitle text-muted h5">ServiceLink</h3>
+                        <p class="card-text mt-3">
+                            Directed digital transformation of mortgage SaaS platforms, delivering $15M+ revenue impact through digital onboarding and closing platform. Improved time-to-close by over 90%.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">Digital Transformation</span>
+                            <span class="badge bg-primary me-2">SaaS</span>
+                            <span class="badge bg-primary me-2">Product Strategy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Healthcare Project -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 fade-in">
+                    <div class="card-body">
+                        <img src="{{ url_for('static', filename='images/products/healthcare.png') }}" 
+                             alt="Healthcare Analytics Platform" 
+                             class="product-image mb-3">
+                        <h2 class="card-title h3">Healthcare Analytics Platform</h2>
+                        <h3 class="card-subtitle text-muted h5">Deloitte</h3>
+                        <p class="card-text mt-3">
+                            Delivered an end-to-end cognitive computing product for early-stage diabetes awareness using predictive analytics and ML algorithms. Built with Python (Django) and Azure ML Studio.
+                        </p>
+                        <div class="mt-3">
+                            <span class="badge bg-primary me-2">AI/ML</span>
+                            <span class="badge bg-primary me-2">Healthcare</span>
+                            <span class="badge bg-primary me-2">Data Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Talks & Articles -->
+        <h2 class="h3 mb-4">Product Talks & Articles</h2>
+        <div class="row">
+            {% for talk in profile.product_talks_and_articles %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 fade-in">
+                    <div class="card-body">
+                        <h2 class="card-title h3">{{ talk.title }}</h2>
+                        <h3 class="card-subtitle text-muted h5">{{ talk.organization }}</h3>
+                        <p class="text-muted mb-3">{{ talk.date }}</p>
+                        <p class="card-text">{{ talk.description }}</p>
+                        {% if talk.link %}
+                        <a href="{{ talk.link }}" target="_blank" class="btn btn-outline-primary mt-3">View Details</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %} 

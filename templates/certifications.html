@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h1 class="display-4 mb-5">Professional Certifications</h1>
+        
+        <!-- Microsoft Azure Certification -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card fade-in">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-2 text-center mb-3 mb-md-0">
+                                <i class="fab fa-microsoft fa-4x text-primary"></i>
+                            </div>
+                            <div class="col-md-7">
+                                <h2 class="h3 mb-2">Microsoft Certified: Azure Fundamentals</h2>
+                                <p class="text-muted mb-2">Microsoft</p>
+                                <p class="mb-0">Issued Jun 2020</p>
+                            </div>
+                            <div class="col-md-3 text-md-end">
+                                <a href="https://www.credly.com/badges/25c4a2fc-c738-4f2e-85e4-9b12d1139b90" target="_blank" class="btn btn-primary">
+                                    <i class="fas fa-certificate me-2"></i>View Certificate
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Product Management Certifications -->
+        <h2 class="h3 mb-4">Product Management Certifications</h2>
+        <div class="row">
+            {% for cert in profile.certifications %}
+            {% if cert.name != 'Microsoft Certified: Azure Fundamentals' %}
+            <div class="col-md-6 mb-4">
+                <div class="card h-100 fade-in">
+                    <div class="card-body">
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-certificate fa-2x me-3 text-primary mt-1"></i>
+                            <div>
+                                <h3 class="h4 mb-2">{{ cert.name }}</h3>
+                                <p class="text-muted mb-2">{{ cert.issuer }}</p>
+                                <p class="text-muted small mb-3">{{ cert.date }}</p>
+                                {% if cert.link %}
+                                <a href="{{ cert.link }}" target="_blank" class="btn btn-outline-primary">
+                                    <i class="fas fa-external-link-alt me-2"></i>View Certificate
+                                </a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Certification Categories -->
+        <div class="row mt-5">
+            <div class="col-12">
+                <h2 class="h3 mb-4">Certification Categories</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 fade-in">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cloud fa-3x text-primary mb-3"></i>
+                                <h3 class="h4 mb-3">Cloud Platforms</h3>
+                                <p class="text-muted">Microsoft Azure Fundamentals certification demonstrating expertise in cloud computing concepts and services.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 fade-in">
+                            <div class="card-body text-center">
+                                <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                                <h3 class="h4 mb-3">Product Management</h3>
+                                <p class="text-muted">Certifications in product strategy, digital product management, and product simulation from leading institutions.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100 fade-in">
+                            <div class="card-body text-center">
+                                <i class="fas fa-brain fa-3x text-primary mb-3"></i>
+                                <h3 class="h4 mb-3">AI & Technology</h3>
+                                <p class="text-muted">Certification in AI fundamentals from Coursera, demonstrating expertise in artificial intelligence concepts.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} 
