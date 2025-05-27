@@ -14,7 +14,7 @@ A modern, responsive portfolio website built with HTML, CSS, and JavaScript, fea
 
 ## Live Demo
 
-Visit the live site at: [https://prannjall.github.io/portfolio-website](https://prannjall.github.io/portfolio-website)
+Visit the live site at: [https://prannjall.github.io/Portfolio-website](https://prannjall.github.io/Portfolio-website)
 
 ## Local Development
 
