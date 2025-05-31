@@ -1,129 +1,64 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h1 class="display-4 mb-5">Product Portfolio</h1>
-        
-        <!-- Enterprise Products -->
-        <h2 class="h3 mb-4">Enterprise Products</h2>
-        <div class="row mb-5">
-            <!-- CloudHub Product -->
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 fade-in">
-                    <div class="card-body">
-                        <img src="{{ url_for('static', filename='images/products/cloudhub.png') }}" 
-                             alt="CloudHub Platform" 
-                             class="product-image mb-3">
-                        <h2 class="card-title h3">CloudHub Platform</h2>
-                        <h3 class="card-subtitle text-muted h5">Salesforce</h3>
-                        <p class="card-text mt-3">
-                            Led product strategy and roadmap execution for MuleSoft's iPaaS platform, supporting global customers in hybrid and multi-cloud environments. Enabled enterprise-grade deployments through AWS Transit Gateway integration.
-                        </p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary me-2">iPaaS</span>
-                            <span class="badge bg-primary me-2">Cloud Platforms</span>
-                            <span class="badge bg-primary me-2">Enterprise SaaS</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mule Runtime Product -->
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 fade-in">
-                    <div class="card-body">
-                        <img src="{{ url_for('static', filename='images/products/mule-runtime.png') }}" 
-                             alt="Mule Runtime & SDK" 
-                             class="product-image mb-3">
-                        <h2 class="card-title h3">Mule Runtime & SDK</h2>
-                        <h3 class="card-subtitle text-muted h5">Salesforce</h3>
-                        <p class="card-text mt-3">
-                            Spearheaded core platform capabilities including Mule Runtime, HTTP Connector, and Java/XML SDKs, powering thousands of mission-critical integrations. Reduced connector development time by 30%.
-                        </p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary me-2">API Management</span>
-                            <span class="badge bg-primary me-2">SDK Development</span>
-                            <span class="badge bg-primary me-2">Platform Scalability</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Digital Mortgage Product -->
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 fade-in">
-                    <div class="card-body">
-                        <img src="{{ url_for('static', filename='images/products/digital-mortgage.png') }}" 
-                             alt="Digital Mortgage Platform" 
-                             class="product-image mb-3">
-                        <h2 class="card-title h3">Digital Mortgage Platform</h2>
-                        <h3 class="card-subtitle text-muted h5">ServiceLink</h3>
-                        <p class="card-text mt-3">
-                            Directed digital transformation of mortgage SaaS platforms, delivering $15M+ revenue impact through digital onboarding and closing platform. Improved time-to-close by over 90%.
-                        </p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary me-2">Digital Transformation</span>
-                            <span class="badge bg-primary me-2">SaaS</span>
-                            <span class="badge bg-primary me-2">Product Strategy</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Healthcare Product -->
-            <div class="col-md-6 mb-4">
-                <div class="card h-100 fade-in">
-                    <div class="card-body">
-                        <img src="{{ url_for('static', filename='images/products/healthcare.png') }}" 
-                             alt="Healthcare Analytics Platform" 
-                             class="product-image mb-3">
-                        <h2 class="card-title h3">Healthcare Analytics Platform</h2>
-                        <h3 class="card-subtitle text-muted h5">Deloitte</h3>
-                        <p class="card-text mt-3">
-                            Delivered an end-to-end cognitive computing product for early-stage diabetes awareness using predictive analytics and ML algorithms. Built with Python (Django) and Azure ML Studio.
-                        </p>
-                        <div class="mt-3">
-                            <span class="badge bg-primary me-2">AI/ML</span>
-                            <span class="badge bg-primary me-2">Healthcare</span>
-                            <span class="badge bg-primary me-2">Data Analytics</span>
-                        </div>
+<div class="container">
+    <h2 class="mb-4">Featured Products</h2>
+    <div class="row">
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body text-center">
+                    <img src="{{ url_for('static', filename='images/products/cloudhub.png') }}" 
+                         alt="CloudHub Platform" 
+                         class="product-image mb-3"
+                         style="width: 250px; height: auto; display: block; margin: 0 auto;">
+                    <h5 class="card-title">CloudHub Platform</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Salesforce</h6>
+                    <p class="card-text">Led product strategy and roadmap execution for MuleSoft's iPaaS platform, supporting global customers in hybrid and multi-cloud environments.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">iPaaS</span>
+                        <span class="badge bg-primary me-2">Cloud Platforms</span>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Product Impact -->
-        <div class="row mt-5">
-            <div class="col-12">
-                <h2 class="h3 mb-4">Product Impact</h2>
-                <div class="row">
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 fade-in">
-                            <div class="card-body text-center">
-                                <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
-                                <h3 class="h4 mb-3">Revenue Growth</h3>
-                                <p class="text-muted">Delivered $15M+ revenue impact through digital mortgage platform innovation and automation.</p>
-                            </div>
-                        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100 product-card">
+                <div class="card-body">
+                    <img src="{{ url_for('static', filename='images/products/digital-mortgage.png') }}" class="product-image mb-3" style="width: 300px; height: 150px; display: block; margin: 0 auto;">
+                    <h5 class="card-title fw-old">Digital Mortgage Platform</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">ServiceLink</h6>
+                    <p class="card-text">Directed digital transformation of mortgage SaaS platforms, delivering $15M+ revenue impact through digital onboarding and closing platform.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">Digital Transformation</span>
+                        <span class="badge bg-primary me-2">SaaS</span>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 fade-in">
-                            <div class="card-body text-center">
-                                <i class="fas fa-tachometer-alt fa-3x text-primary mb-3"></i>
-                                <h3 class="h4 mb-3">Efficiency Gains</h3>
-                                <p class="text-muted">Reduced connector development time by 30% and improved time-to-close by over 90%.</p>
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <img src="https://images.icon-icons.com/2699/PNG/512/mulesoft_logo_icon_169945.png" class="product-image mb-3" style="width: 300px; height: auto; display: block; margin: 0 auto;">
+                    <h5 class="card-title">Mule Runtime & SDK</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Salesforce</h6>
+                    <p class="card-text">Spearheaded core platform capabilities including Mule Runtime, HTTP Connector, and Java/XML SDKs, powering thousands of mission-critical integrations.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">API Management</span>
+                        <span class="badge bg-primary me-2">SDK Development</span>
                     </div>
-                    <div class="col-md-4 mb-4">
-                        <div class="card h-100 fade-in">
-                            <div class="card-body text-center">
-                                <i class="fas fa-users fa-3x text-primary mb-3"></i>
-                                <h3 class="h4 mb-3">Customer Impact</h3>
-                                <p class="text-muted">Enabled enterprise-grade deployments for thousands of customers across regulated industries.</p>
-                            </div>
-                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Deloitte_Logo.png" class="product-image mb-3" style="width: 300px; height: auto; display: block; margin: 0 auto;">
+                    <h5 class="card-title">Healthcare Analytics Platform</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Deloitte</h6>
+                    <p class="card-text">Delivered an end-to-end cognitive computing product for early-stage diabetes awareness using predictive analytics and ML algorithms.</p>
+                    <div class="mt-3">
+                        <span class="badge bg-primary me-2">AI/ML</span>
+                        <span class="badge bg-primary me-2">Healthcare</span>
                     </div>
                 </div>
             </div>

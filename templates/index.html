@@ -2,18 +2,22 @@
 
 {% block content %}
 <!-- Hero Section with Background -->
-<div class="hero-section mb-5 fade-in" style="background-image: url('{{ url_for('static', filename='images/background.jpg') }}');">
-    <div class="overlay" style="background-color: rgba(0, 0, 0, 0.7);"></div>
-    <div class="container">
+<div class="hero-section mb-5 fade-in" style="background-image: url('https://images.unsplash.com/photo-1557682250-33bd709cbe85?q=80&w=2029&auto=format&fit=crop'); height: 150vh; padding-bottom: 2rem; background-size: cover; background-position: center;">
+    <div class="overlay" style="background-color: rgba(0, 0, 0, 0.8); height: 100%;"></div>
+    <div class="container text-white" style="position: relative; z-index: 2;">
         <div class="row">
             <div class="col-12 text-center">
-                <div class="profile-image-container mb-4">
-                    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="{{ profile.name }}" class="profile-image rounded-circle border border-4 border-white">
-                </div>
-                <h1 class="display-4" style="color: #FFFFFF; text-shadow: 0 0 10px rgba(255,255,255,0.5), 3px 3px 6px rgba(0,0,0,0.7); font-weight: 700;">{{ profile.name }}</h1>
-                <h2 style="color: #FFFFFF; text-shadow: 0 0 10px rgba(255,255,255,0.5), 3px 3px 6px rgba(0,0,0,0.7); font-weight: 700;">{{ profile.title }}</h2>
+                <div class="profile-image-container mb-4" style="background-color: rgba(0, 0, 0, 0.3); padding: 0px; border-radius: 50%; display: inline-block;">
+                    <img src="{{ url_for('static', filename='images/profile.jpg') }}" 
+                         alt="{{ profile.name }}" 
+                         class="profile-image rounded-circle border border-4 border-white"
+                         style="width: 195px; height: 195px; object-fit: cover; border-radius: 50%; overflow: hidden;">
+                </div><br>
+                <h1 class="display-4" style="color: #FFFFFF; text-shadow: 0 0 0px rgba(255,255,255,0.5), 3px 3px 6px rgba(0,0,0,0.7); font-weight: 700; font-size: 4.5rem;">{{ profile.name }}</h1><br><br>
+                <h2 style="color: #FFFFFF; text-shadow: 0 0 0px rgba(255,255,255,0.5), 3px 3px 6px rgba(0,0,0,0.7); font-weight: 600; font-size: 2rem;">{{ profile.title }}</h2><br>
                 <div class="mt-4">
-                    <p class="lead" style="color: #FFFFFF; text-shadow: 0 0 8px rgba(255,255,255,0.4), 2px 2px 4px rgba(0,0,0,0.7); font-weight: 400;">{{ profile.summary | safe | replace('\n\n', '<br>') | replace('\n', ' ') }}</p>
+                    <p class="lead" style="color: #FFFFFF; text-shadow: 0 0 8px rgba(255,255,255,0.4), 2px 2px 4px rgba(0,0,0,0.7); font-weight: 350; font-size: 1.3rem; text-align: justify; padding: 2rem; font-style: italic;">{{ profile.summary | safe | replace('\n\n', '<br>') | replace('\n', ' ') }}</p>
+                    <br>
                 </div>
             </div>
         </div>
@@ -29,10 +33,33 @@
             <div class="col-md-4 col-lg-3 mb-4">
                 <div class="card h-100 skill-card">
                     <div class="card-body text-center">
-                        <img src="{{ url_for('static', filename='images/skills/' + skill.lower().replace(' ', '-') + '.png') }}" 
-                             alt="{{ skill }}" 
-                             class="skill-icon mb-3"
-                             onerror="this.src='{{ url_for('static', filename='images/skills/default-skill.png') }}'">
+                        {% if skill == 'Product Leadership' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Product Roadmapping' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103634.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Product Strategy' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103635.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Cross-functional Leadership' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103649.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Agile & SAFe' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103637.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'AI/ML Integration' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103650.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Customer Discovery' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103639.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Cloud Platforms (AWS, Azure)' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103651.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'iPaaS (CloudHub)' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103646.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'MuleSoft Runtime & SDK' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103648.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Data Analytics' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103643.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'API Integration' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103645.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/skills/default-skill.png') }}" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% endif %}
                         <h5 class="card-title">{{ skill }}</h5>
                     </div>
                 </div>
@@ -52,7 +79,8 @@
                         <div class="company-logo mb-3">
                             <img src="{{ url_for('static', filename='images/companies/' + exp.company.lower().replace(' ', '-') + '.png') }}" 
                                  alt="{{ exp.company }}"
-                                 onerror="this.src='{{ url_for('static', filename='images/companies/default-company.png') }}'">
+                                 onerror="this.src='{{ url_for('static', filename='images/companies/default-company.png') }}'"
+                                 style="width: 150px; height: auto; display: block; margin: 0 auto;">
                         </div>
                         <h5 class="card-title">{{ exp.title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ exp.company }}</h6>
@@ -83,10 +111,11 @@
         <div class="row">
             <div class="col-md-6 mb-4">
                 <div class="card h-100 product-card">
-                    <div class="card-body">
+                    <div class="card-body text-center">
                         <img src="{{ url_for('static', filename='images/products/cloudhub.png') }}" 
                              alt="CloudHub Platform" 
-                             class="product-image mb-3">
+                             class="product-image mb-3"
+                             style="width: 250px; height: auto; display: block; margin: 0 auto;">
                         <h5 class="card-title">CloudHub Platform</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Salesforce</h6>
                         <p class="card-text">Led product strategy and roadmap execution for MuleSoft's iPaaS platform, supporting global customers in hybrid and multi-cloud environments.</p>
@@ -100,8 +129,8 @@
             <div class="col-md-6 mb-4">
                 <div class="card h-100 product-card">
                     <div class="card-body">
-                        <img src="{{ url_for('static', filename='images/products/digital-mortgage.png') }}" 
-                        <h5 class="card-title fw-bold">Digital Mortgage Platform</h5>
+                        <img src="{{ url_for('static', filename='images/products/digital-mortgage.png') }}" class="product-image mb-3" style="width: 300px; height: 150px; display: block; margin: 0 auto;">
+                        <h5 class="card-title fw-old">Digital Mortgage Platform</h5>
                         <h6 class="card-subtitle mb-2 text-muted">ServiceLink</h6>
                         <p class="card-text">Directed digital transformation of mortgage SaaS platforms, delivering $15M+ revenue impact through digital onboarding and closing platform.</p>
                         <div class="mt-3">
@@ -114,6 +143,7 @@
             <div class="col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
+                        <img src="https://images.icon-icons.com/2699/PNG/512/mulesoft_logo_icon_169945.png" class="product-image mb-3" style="width: 300px; height: auto; display: block; margin: 0 auto;">
                         <h5 class="card-title">Mule Runtime & SDK</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Salesforce</h6>
                         <p class="card-text">Spearheaded core platform capabilities including Mule Runtime, HTTP Connector, and Java/XML SDKs, powering thousands of mission-critical integrations.</p>
@@ -127,6 +157,7 @@
             <div class="col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/15/Deloitte_Logo.png" class="product-image mb-3" style="width: 300px; height: auto; display: block; margin: 0 auto;">
                         <h5 class="card-title">Healthcare Analytics Platform</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Deloitte</h6>
                         <p class="card-text">Delivered an end-to-end cognitive computing product for early-stage diabetes awareness using predictive analytics and ML algorithms.</p>
@@ -145,12 +176,27 @@
 
     <!-- Talks & Articles Preview -->
     <div class="col-12 mb-5 fade-in">
-        <h3 class="mb-4">Recent Talks & Articles</h3>
+        <h3 class="mb-4 text-center">Recent Talks & Articles</h3>
         <div class="row">
             {% for talk in profile.product_talks_and_articles[:4] %}
             <div class="col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
+                        {% if 'Featured Speaker – Product School' in talk.title %}
+                            <img src="https://images.ctfassets.net/6nwv0fapso8r/5OADQyqlPO8NHTJOOJhp5I/4a2538c05fa28e27b796d0a9ad2ff2eb/Default-200x200.png" class="mb-3" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                        {% elif 'Featured Speaker – All Things Open Conference' in talk.title %}
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSS50O49lcxbc56OWklKmkOw4wFA95PuoYr2Q&s" class="mb-3" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                        {% elif 'API' in talk.title or 'Integration' in talk.title %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103654.png" class="mb-3" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                        {% elif 'AI' in talk.title or 'ML' in talk.title or 'Machine Learning' in talk.title %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103655.png" class="mb-3" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                        {% elif 'Cloud' in talk.title or 'Platform' in talk.title %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103656.png" class="mb-3" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                        {% elif 'Product' in talk.title or 'Strategy' in talk.title %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103657.png" class="mb-3" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                        {% else %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103658.png" class="mb-3" style="width: 100px; height: auto; display: block; margin: 0 auto;">
+                        {% endif %}
                         <h5 class="card-title">{{ talk.title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ talk.organization }}</h6>
                         <p class="card-text">
@@ -169,14 +215,30 @@
 
     <!-- Certifications Preview -->
     <div class="col-12 mb-5 fade-in">
-        <h3 class="mb-4">Featured Certifications</h3>
+        <h3 class="mb-4 text-center">Featured Certifications</h3>
         <div class="row">
             {% for cert in profile.certifications[:4] %}
             <div class="col-md-6 mb-4">
                 <div class="card h-100">
                     <div class="card-body">
                         <div class="d-flex align-items-start">
-                            <i class="fas fa-certificate fa-2x me-3 text-primary mt-1"></i>
+                            {% if 'Microsoft Certified: Azure Fundamentals' in cert.name %}
+                                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103664.png" class="me-3" style="width: 80px; height: auto;">
+                            {% elif 'GoPractice Product Simulator' in cert.name %}
+                                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103668.png" class="me-3" style="width: 80px; height: auto;">
+                            {% elif 'Product Management: Building a Product Strategy' in cert.name %}
+                                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103669.png" class="me-3" style="width: 80px; height: auto;">
+                            {% elif 'AI For Everyone' in cert.name %}
+                                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103667.png" class="me-3" style="width: 80px; height: auto;">
+                            {% elif 'AWS' in cert.name %}
+                                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103659.png" class="me-3" style="width: 80px; height: auto;">
+                            {% elif 'MuleSoft' in cert.name %}
+                                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103661.png" class="me-3" style="width: 80px; height: auto;">
+                            {% elif 'Agile' in cert.name or 'SAFe' in cert.name %}
+                                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103662.png" class="me-3" style="width: 80px; height: auto;">
+                            {% else %}
+                                <img src="https://cdn-icons-png.flaticon.com/512/2103/2103663.png" class="me-3" style="width: 80px; height: auto;">
+                            {% endif %}
                             <div>
                                 <h5 class="card-title">{{ cert.name }}</h5>
                                 <h6 class="card-subtitle mb-2 text-muted">{{ cert.issuer }}</h6>
@@ -195,7 +257,7 @@
 
     <!-- Education Section -->
     <div class="col-12 fade-in">
-        <h3 class="mb-4">Education</h3>
+        <h3 class="mb-4 text-center">Education</h3>
         <div class="row">
             {% for edu in profile.education %}
             <div class="col-md-6 mb-4">

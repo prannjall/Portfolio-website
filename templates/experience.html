@@ -1,39 +1,82 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="row">
-    <div class="col-12">
-        <h1 class="display-4 mb-5">Professional Experience</h1>
-        
-        {% for exp in profile.experience %}
-        <div class="card mb-5 fade-in">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-start mb-3">
-                    <div>
+<div class="container">
+    <!-- Experience Section -->
+    <div class="col-12 mb-5 fade-in">
+        <h3 class="mb-4 text-center">Professional Experience</h3>
+        <div class="row">
+            {% for exp in profile.experience %}
+            <div class="col-12 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
                         <div class="company-logo mb-3">
                             <img src="{{ url_for('static', filename='images/companies/' + exp.company.lower().replace(' ', '-') + '.png') }}" 
                                  alt="{{ exp.company }}"
-                                 onerror="this.src='{{ url_for('static', filename='images/companies/default-company.png') }}'">
+                                 onerror="this.src='{{ url_for('static', filename='images/companies/default-company.png') }}'"
+                                 style="width: 150px; height: auto; display: block; margin: 0 auto;">
                         </div>
-                        <h2 class="card-title h3">{{ exp.title }}</h2>
-                        <h3 class="card-subtitle text-muted h5">{{ exp.company }}</h3>
-                    </div>
-                    <div class="text-end">
-                        <span class="badge bg-primary">{{ exp.duration }}</span>
-                        <p class="text-muted mt-2">{{ exp.location }}</p>
+                        <h5 class="card-title">{{ exp.title }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ exp.company }}</h6>
+                        <p class="card-text">
+                            <span class="badge bg-primary">{{ exp.duration }}</span>
+                            <span class="text-muted ms-2">{{ exp.location }}</span>
+                        </p>
+                        <ul class="card-text list-unstyled">
+                            {% for point in exp.description.split('\n') %}
+                                {% if point.strip() %}
+                                    <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5em; vertical-align: middle;"></i>{{ point.strip() }}</li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
                     </div>
                 </div>
-                
-                <ul class="card-text list-unstyled">
-                    {% for point in exp.description.split('\n') %}
-                        {% if point.strip() %}
-                            <li class="mb-2"><i class="fas fa-circle text-primary me-2" style="font-size: 0.5em; vertical-align: middle;"></i>{{ point.strip() }}</li>
-                        {% endif %}
-                    {% endfor %}
-                </ul>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+    </div>
+
+    <!-- Skills Section -->
+    <div class="col-12 mb-5 fade-in">
+        <h3 class="mb-4 text-center">Skills & Expertise</h3>
+        <div class="row">
+            {% for skill in profile.skills %}
+            <div class="col-md-4 col-lg-3 mb-4">
+                <div class="card h-100 skill-card">
+                    <div class="card-body text-center">
+                        {% if skill == 'Product Leadership' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103633.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Product Roadmapping' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103634.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Product Strategy' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103635.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Cross-functional Leadership' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103649.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Agile & SAFe' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103637.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'AI/ML Integration' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103650.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Customer Discovery' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103639.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Cloud Platforms (AWS, Azure)' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103651.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'iPaaS (CloudHub)' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103646.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'MuleSoft Runtime & SDK' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103648.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'Data Analytics' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103643.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% elif skill == 'API Integration' %}
+                            <img src="https://cdn-icons-png.flaticon.com/512/2103/2103645.png" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/skills/default-skill.png') }}" alt="{{ skill }}" class="skill-icon mb-3">
+                        {% endif %}
+                        <h5 class="card-title">{{ skill }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %} 
