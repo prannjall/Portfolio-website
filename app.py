@@ -10,7 +10,7 @@ app.config['SECRET_KEY'] = os.urandom(24)
 # Profile data
 PROFILE_DATA = {
     'name': 'Pranjal Tripathi',
-    'title': 'Director / Principal Product Manager | Cloud Platforms, SaaS, AI/ML | Salesforce',
+    'title': 'Product Manager Leader | Cloud Platforms, SaaS, AI/ML | Salesforce',
     'summary': '''Pranjal Tripathi is a seasoned product leader with over 12 years of experience driving innovation across enterprise SaaS, iPaaS, and cloud integration platforms. As a Director-level Product Manager at Salesforce, Pranjal leads product strategy, roadmap execution, and cross-functional alignment for high-scale platforms such as CloudHub and MuleSoft Runtime Engine. He combines deep technical acumen with a customer-first mindset to deliver products that drive revenue, efficiency, and user satisfaction. Pranjal has a consistent track record of launching transformative products and leading global product teams across the U.S. and India. His core strengths include enterprise product lifecycle ownership, stakeholder alignment, product-led growth strategies, and cross-functional team leadership. His leadership extends to driving complex migrations, AI/ML feature integration, and digital transformation across regulated industries such as mortgage, banking, and healthcare. Previously, he led product development at ServiceLink, increasing operational revenue by over $17M through strategic automation and SaaS platform innovation. He holds a Master's in Information Systems Management from Carnegie Mellon University and is a Microsoft Azure Certified professional. Pranjal is passionate about solving hard problems at scale and building high-performance product organizations.''',
     'experience': [
         {
