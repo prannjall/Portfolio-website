@@ -1,64 +1,146 @@
 # Professional Portfolio Website
 
-A modern, responsive portfolio website built with HTML, CSS, and JavaScript, featuring a clean design and smooth animations.
+A modern, responsive portfolio website built with Flask and Bootstrap, featuring a clean and professional design.
 
 ## Features
 
-- Responsive design that works on all devices
-- Modern UI with smooth animations
-- Dark mode support
-- Interactive sections for experience, skills, and education
-- Social media integration
-- Contact form
-- SEO optimized
+- **Modern Design**: Clean, professional layout with smooth animations and transitions
+- **Responsive**: Fully responsive design that works on all devices
+- **Dynamic Content**: Content managed through a Python profile configuration
+- **Multiple Sections**:
+  - Hero section with professional background
+  - Core Competencies with custom icons
+  - Professional Experience with company logos
+  - Featured Products showcase
+  - Talks & Articles with category-specific icons
+  - Certifications with custom icons
+  - Education history
 
-## Live Demo
+## Tech Stack
 
-Visit the live site at: [https://prannjall.github.io/Portfolio-website](https://prannjall.github.io/Portfolio-website)
-
-## Local Development
-
-1. Clone the repository:
-```bash
-git clone https://github.com/pranjaltripathi/portfolio-website.git
-cd portfolio-website
-```
-
-2. Open `index.html` in your browser to view the site locally.
+- **Backend**: Python/Flask
+- **Frontend**: 
+  - HTML5
+  - CSS3
+  - Bootstrap 5
+  - Font Awesome icons
+- **Images**: 
+  - Custom icons from Flaticon
+  - Professional background images
+  - Company logos
+  - Product images
 
 ## Project Structure
 
 ```
-portfolio-website/
-├── index.html              # Main HTML file
+portfolio/
 ├── static/
 │   ├── css/
-│   │   └── style.css      # Custom styles
-│   └── images/            # Image assets
-├── .github/
-│   └── workflows/         # GitHub Actions workflows
-└── README.md              # Project documentation
+│   │   └── style.css
+│   └── images/
+│       ├── background.jpg
+│       ├── profile.jpg
+│       ├── companies/
+│       └── products/
+├── templates/
+│   ├── base.html
+│   ├── index.html
+│   ├── experience.html
+│   ├── products.html
+│   ├── talks.html
+│   ├── certifications.html
+│   └── contact.html
+├── app.py
+├── profile.py
+└── README.md
 ```
 
-## GitHub Pages Deployment
+## Setup and Installation
 
-This site is automatically deployed to GitHub Pages using GitHub Actions. The deployment process:
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd portfolio
+```
 
-1. Pushes to the main branch trigger the deployment workflow
-2. The workflow builds the site and deploys it to the gh-pages branch
-3. GitHub Pages serves the site from the gh-pages branch
+2. Create a virtual environment and activate it:
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
 
-To deploy manually:
-1. Make your changes
-2. Commit and push to the main branch
-3. The GitHub Action will automatically deploy to GitHub Pages
+3. Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the application:
+```bash
+python app.py
+```
+
+5. Open your browser and navigate to `http://localhost:5000`
 
 ## Customization
 
-1. Update the content in `index.html`
-2. Modify styles in `static/css/style.css`
-3. Add your images to `static/images/`
-4. Commit and push your changes
+### Profile Information
+Edit `profile.py` to update your personal information, including:
+- Name and title
+- Professional summary
+- Skills and competencies
+- Work experience
+- Products
+- Talks and articles
+- Certifications
+- Education
+- Contact information
+
+### Styling
+- Main styles are in `static/css/style.css`
+- Bootstrap classes are used throughout for responsive design
+- Custom styling can be added inline or in the CSS file
+
+### Images
+- Profile picture: Replace `static/images/profile.jpg`
+- Background image: Replace `static/images/background.jpg`
+- Company logos: Add to `static/images/companies/`
+- Product images: Add to `static/images/products/`
+
+## Features in Detail
+
+### Hero Section
+- Professional dark background with overlay
+- Centered profile image with border
+- Name and title with text shadow
+- Italicized professional summary
+
+### Core Competencies
+- Grid layout with custom icons
+- Hover effects on cards
+- Category-specific icons for each skill
+
+### Experience Section
+- Company logos with consistent sizing
+- Duration and location badges
+- Bullet points for responsibilities
+- Responsive grid layout
+
+### Products Section
+- Featured products with custom images
+- Technology badges
+- Consistent image sizing
+- Clean card layout
+
+### Talks & Articles
+- Category-specific icons
+- Date badges
+- Organization information
+- Truncated descriptions
+
+### Certifications
+- Custom icons for each certification type
+- Issuer and date information
+- Clean layout with icons
 
 ## Contributing
 
@@ -71,6 +153,13 @@ To deploy manually:
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Icons from [Flaticon](https://www.flaticon.com)
+- Background images from [Unsplash](https://unsplash.com)
+- Bootstrap framework
+- Font Awesome icons
 
 ## Contact
 
